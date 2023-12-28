@@ -22,8 +22,5 @@ jobs:
 
     - name: Build with Make
       run: |
-        # Navigate to your project directory where the Makefile is located
-        cd ~/adv360pro-v3
-
         # Run the make command
         make
