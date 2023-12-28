@@ -34,8 +34,4 @@ jobs:
       with:
         name: my-artifact-name
         path: ${{ github.workspace }}/artifacts
-    - name: Download Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: my-artifact-name
-        path: path/to/download/location
+
