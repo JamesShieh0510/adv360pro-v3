@@ -20,7 +20,22 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install build-essential -y
 
-    - name: Build with Make
+    - name: Build and Upload Artifact
       run: |
-        # Run the make command
+        # Run your build commands
         make
+    
+        # Upload the build artifacts to GitHub Actions
+        mkdir -p ${{ github.workspace }}/artifacts
+        mv path/to/your/builded/files ${{ github.workspace }}/artifacts
+    
+      # Upload the artifacts as a build artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact-name
+        path: ${{ github.workspace }}/artifacts
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: my-artifact-name
+        path: path/to/download/location
