@@ -1,0 +1,29 @@
+name: Build with Make
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up build environment
+      run: |
+        # Install any dependencies required for your project's build
+        # For example, you can install build-essential for make
+        sudo apt-get update -y
+        sudo apt-get install build-essential -y
+
+    - name: Build with Make
+      run: |
+        # Navigate to your project directory where the Makefile is located
+        cd path/to/your/project
+
+        # Run the make command
+        make
