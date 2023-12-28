@@ -27,8 +27,8 @@ jobs:
     
         # Upload the build artifacts to GitHub Actions
         mkdir -p ${{ github.workspace }}/artifacts
-        mv path/to/your/builded/files ${{ github.workspace }}/artifacts
-    
+        mv ~/firmware/* ${{ github.workspace }}/artifacts
+    - name: Upload the artifacts as a build artifact
       # Upload the artifacts as a build artifact
       uses: actions/upload-artifact@v2
       with:
