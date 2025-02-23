@@ -1,38 +1,38 @@
-name: Build with Make
+# name: Build with Make
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+#     steps:
+#     - name: Check out code
+#       uses: actions/checkout@v2
 
-    - name: Set up build environment
-      run: |
-        # Install any dependencies required for your project's build
-        # For example, you can install build-essential for make
-        sudo apt-get update -y
-        sudo apt-get install build-essential -y
+#     - name: Set up build environment
+#       run: |
+#         # Install any dependencies required for your project's build
+#         # For example, you can install build-essential for make
+#         sudo apt-get update -y
+#         sudo apt-get install build-essential -y
 
-    - name: Build and Upload Artifact
-      run: |
-        # Run your build commands
-        make
+#     - name: Build and Upload Artifact
+#       run: |
+#         # Run your build commands
+#         make
     
-        # Upload the build artifacts to GitHub Actions
-        mkdir -p ${{ github.workspace }}/artifacts
-        ls
-        mv ./firmware ${{ github.workspace }}/artifacts/firmware
-    - name: Upload the artifacts as a build artifact
-      # Upload the artifacts as a build artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: keyboard-firmware
-        path: ${{ github.workspace }}/artifacts
+#         # Upload the build artifacts to GitHub Actions
+#         mkdir -p ${{ github.workspace }}/artifacts
+#         ls
+#         mv ./firmware ${{ github.workspace }}/artifacts/firmware
+#     - name: Upload the artifacts as a build artifact
+#       # Upload the artifacts as a build artifact
+#       uses: actions/upload-artifact@v2
+#       with:
+#         name: keyboard-firmware
+#         path: ${{ github.workspace }}/artifacts
 
